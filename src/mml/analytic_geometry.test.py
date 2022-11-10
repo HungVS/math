@@ -46,6 +46,17 @@ class Test(unittest.TestCase):
         d=np.sqrt(60)
         self.assertAlmostEqual(res,d)
 
+    def test_calculate_distance_of_2_vectors_with_specific_inner_product(self):
+        e2=[0,1,0]
+        p=[1/2,0,-1/2]
+        def inner_product(a,b):
+            return np.dot(np.dot(np.transpose(a),[[2,1,0],[1,2,-1],[0,-1,2]]),b)
+
+        res=calculate_distance_of_2_vectors_with_specific_inner_product(e2,p,inner_product)
+        d=1
+        self.assertEqual(d,res)
+        
+
 
 
 if __name__ == '__main__':
