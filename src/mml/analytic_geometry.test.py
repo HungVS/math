@@ -1,6 +1,8 @@
 import unittest
 from analytic_geometry.orthogonal_projections import *
 from analytic_geometry.lengths_and_distances import *
+from analytic_geometry.norms import *
+import numpy as np
 
 class Test(unittest.TestCase):
 
@@ -45,6 +47,16 @@ class Test(unittest.TestCase):
         res=calculate_distance_of_vector_and_space(x,generating_set)
         d=np.sqrt(60)
         self.assertAlmostEqual(res,d)
+
+    def test_manhattan_norm(self):
+        x=[3,2,-1]
+        self.assertEqual(manhattan_norm(x),np.linalg.norm(x,1))
+
+    def test_euclidean_norm(self):
+        x=[3,2,-1]
+        self.assertEqual(euclidean_norm(x),np.linalg.norm(x,2))
+    
+
 
 
 
